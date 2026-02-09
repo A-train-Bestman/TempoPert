@@ -19,9 +19,9 @@ We provide preprocessed datasets (LINCS L1000) and model checkpoints for trainin
 
 **Datasets**:
 
-- [LINCS L1000 with splits](https://github.com/A-train-Bestman/TempoPert/tree/main/dataset) - `Lincs_L1000_with_pairs_splits.h5ad`
+- [LINCS L1000 with splits](https://github.com/A-train-Bestman/TempoPert/tree/main/dataset) - `Lincs_L1000.h5ad`
 - [Time series data](https://github.com/A-train-Bestman/TempoPert/tree/main/dataset) - `L1000_0_6_24.csv`
-- [KPGT molecular embeddings](https://github.com/A-train-Bestman/TempoPert/tree/main/dataset) - `KPGT_prnet_2304.pkl`
+- [KPGT molecular embeddings](https://github.com/A-train-Bestman/TempoPert/tree/main/dataset) - `KPGT_2304.pkl`
 
 ### Data Sources
 
