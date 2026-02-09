@@ -123,3 +123,14 @@ python train_TempoPert.py --split-key random_splits_4 \
                           --batch-size 2048 \
                           --epochs 100
 ```
+## Citation
+
+## References
+
+- **Paper**: Bosheng Song, Quanchao Chen, Xiulong Yang, Xiangxiang Zeng, and Zixu Wang. Deep learning of temporal gene expression trajectories enables time-resolved drug response prediction and repositioning
+- **Code**: https://github.com/A-train-Bestman/TempoPert
+
+## Contact
+
+- Xiangxiang Zeng: xzeng@hnu.edu.cn
+- Zixu Wang: s2230167@u.tsukuba.ac.jp
