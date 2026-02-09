@@ -22,3 +22,18 @@ We provide preprocessed datasets (LINCS L1000) and model checkpoints for trainin
 - [LINCS L1000 with splits](https://github.com/A-train-Bestman/TempoPert/tree/main/dataset) - `Lincs_L1000_with_pairs_splits.h5ad`
 - [Time series data](https://github.com/A-train-Bestman/TempoPert/tree/main/dataset) - `L1000_0_6_24.csv`
 - [KPGT molecular embeddings](https://github.com/A-train-Bestman/TempoPert/tree/main/dataset) - `KPGT_prnet_2304.pkl`
+
+### Data Sources
+
+The L1000 dataset is from the LINCS project (GSE92742). Alternative download:
+
+- LINCS official website: https://maayanlab.cloud/sigcom-lincs/
+- GEO database: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742
+
+To clone our repository:
+
+```bash
+git clone https://github.com/A-train-Bestman/TempoPert.git
+```
+
+Please download the datasets and store them in the `dataset` folder. Download the pretrained weights and store them in the `checkpoint` folder.
