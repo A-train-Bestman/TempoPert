@@ -37,3 +37,86 @@ git clone https://github.com/A-train-Bestman/TempoPert.git
 ```
 
 Please download the datasets and store them in the `dataset` folder. Download the trained weights from [checkpoint scouse](https://drive.google.com/drive/folders/1nEsu-0hLoHPSPDgxqCLQ1I9Y2hEEQ0-c).
+
+## Repository Structure
+
+```
+TempoPert/
+├── model/: contains the model architecture and training code
+│   ├── bulider.py: trajectory builder for preprocessing
+│   ├── progressive_model.py: TempoPert model architecture
+│   ├── train_TempoPert.py: training script
+│   └── trajectory_dataset.py: data loader utilities
+├── dataset/: contains datasets (download separately)
+├── checkpoint/: model checkpoints
+```
+
+## Step 1: Installation
+
+We recommend using Anaconda to create a conda environment:
+
+```bash
+conda create -n tempopert python=3.8
+conda activate tempopert
+```
+
+Install PyTorch (adjust according to your CUDA version):
+
+```bash
+pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2
+```
+
+Install other dependencies:
+### Requirements
+
+- Python >= 3.8
+- PyTorch >= 2.0.0
+- CUDA >= 11.0 (for GPU acceleration)
+- scanpy, anndata, pandas, numpy, scipy, scikit-learn
+- rdkit, tqdm, matplotlib
+
+## Step 2: Preprocess Trajectory Data
+
+Before training, you need to build optimized temporal trajectories (one-time process):
+
+```bash
+cd model
+python bulider.py --adata-path ../dataset/Lincs_L1000_with_pairs_splits.h5ad \
+                  --timeseries-path ../dataset/L1000_0_6_24.csv \
+                  --output-dir ./trajectory_memory \
+                  --num-shards 10 \
+                  --workers 8
+```
+
+This generates preprocessed trajectory data in `./trajectory_memory/`.
+
+## Step 3: Train with Provided Dataset
+
+### Train on L1000 Dataset
+
+**Compound Split** (evaluate generalization to new compounds):
+
+```bash
+python train_TempoPert.py --adata-path ../dataset/Lincs_L1000_with_pairs_splits.h5ad \
+                          --timeseries-path ../dataset/L1000_0_6_24.csv \
+                          --split-key drug_splits_4 \
+                          --batch-size 2048 \
+                          --epochs 100 \
+                          --device cuda
+```
+
+**Cell Line Split** (evaluate generalization to new cell types):
+
+```bash
+python train_TempoPert.py --split-key cell_splits_4 \
+                          --batch-size 2048 \
+                          --epochs 100
+```
+
+**Random Split** (performance upper bound):
+
+```bash
+python train_TempoPert.py --split-key random_splits_4 \
+                          --batch-size 2048 \
+                          --epochs 100
+```
