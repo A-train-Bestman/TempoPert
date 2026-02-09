@@ -36,4 +36,4 @@ To clone our repository:
 git clone https://github.com/A-train-Bestman/TempoPert.git
 ```
 
-Please download the datasets and store them in the `dataset` folder. Download the pretrained weights and store them in the `checkpoint` folder.
+Please download the datasets and store them in the `dataset` folder. Download the trained weights from [checkpoint scouse](https://drive.google.com/drive/folders/1nEsu-0hLoHPSPDgxqCLQ1I9Y2hEEQ0-c).
