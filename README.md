@@ -50,6 +50,7 @@ TempoPert/
 │   └── train_memory.py: training trajectory builder script
 ├── dataset/: contains datasets (download separately)
 ├── checkpoint/: model checkpoints
+├── trainer/: baseline model trainer
 ```
 
 ## Step 1: Installation
