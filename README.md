@@ -47,6 +47,7 @@ TempoPert/
 │   ├── progressive_model.py: TempoPert model architecture
 │   ├── train_TempoPert.py: training script
 │   └── trajectory_dataset.py: data loader utilities
+│   └── train_memory.py: training trajectory builder script
 ├── dataset/: contains datasets (download separately)
 ├── checkpoint/: model checkpoints
 ```
@@ -81,11 +82,12 @@ Before training, you need to build optimized temporal trajectories (one-time pro
 
 ```bash
 cd model
-python bulider.py --adata-path ../dataset/Lincs_L1000_with_pairs_splits.h5ad \
-                  --timeseries-path ../dataset/L1000_0_6_24.csv \
-                  --output-dir ./trajectory_memory \
-                  --num-shards 10 \
-                  --workers 8
+python train_memory.py \
+    --adata-path dataset/Lincs_L1000_with_pairs_splits.h5ad \
+    --timeseries-path dataset/L1000_0_6_24.csv \
+    --memory-dir ./trajectory_memory \
+    --optimize-steps 30 \
+    --only-optimize
 ```
 
 This generates preprocessed trajectory data in `./trajectory_memory/`.
