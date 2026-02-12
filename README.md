@@ -18,7 +18,7 @@ We provide preprocessed datasets (LINCS L1000) and model checkpoints for trainin
 
 **Datasets**:
 
-- [LINCS L1000 with splits](https://github.com/A-train-Bestman/TempoPert/tree/main/dataset) - `Lincs_L1000.h5ad`
+- [LINCS L1000](https://github.com/A-train-Bestman/TempoPert/tree/main/dataset) - `Lincs_L1000.h5ad`
 - [Time series data](https://github.com/A-train-Bestman/TempoPert/tree/main/dataset) - `L1000_0_6_24.csv`
 - [KPGT molecular embeddings](https://github.com/A-train-Bestman/TempoPert/tree/main/dataset) - `KPGT_2304.pkl`
 
@@ -83,7 +83,7 @@ Before training, you need to build optimized temporal trajectories (one-time pro
 ```bash
 cd model
 python train_memory.py \
-    --adata-path dataset/Lincs_L1000_with_pairs_splits.h5ad \
+    --adata-path dataset/Lincs_L1000.h5ad \
     --timeseries-path dataset/L1000_0_6_24.csv \
     --memory-dir ./trajectory_memory \
     --optimize-steps 30 \
@@ -99,7 +99,7 @@ This generates preprocessed trajectory data in `./trajectory_memory/`.
 **Compound Split** (evaluate generalization to new compounds):
 
 ```bash
-python train_TempoPert.py --adata-path ../dataset/Lincs_L1000_with_pairs_splits.h5ad \
+python train_TempoPert.py --adata-path ../dataset/Lincs_L1000.h5ad \
                           --timeseries-path ../dataset/L1000_0_6_24.csv \
                           --split-key drug_splits_4 \
                           --batch-size 2048 \
