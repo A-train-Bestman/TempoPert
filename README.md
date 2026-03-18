@@ -66,8 +66,12 @@ Install PyTorch (adjust according to your CUDA version):
 ```bash
 pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2
 ```
+```bash
+# Install other dependencies via requirements.txt
+pip install -r requirements.txt
+```
 
-Install other dependencies:
+
 ### Requirements
 
 - Python >= 3.8
