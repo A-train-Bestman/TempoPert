@@ -70,7 +70,8 @@ pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2
 # Install other dependencies via requirements.txt
 pip install -r requirements.txt
 ```
-
+### Typical installation time
+The environment setup and dependency installation typically take 30-50 minutes on a standard desktop computer.
 
 ### Requirements
 
@@ -126,6 +127,9 @@ python train_TempoPert.py --split-key random_splits_4 \
                           --batch-size 2048 \
                           --epochs 100
 ```
+### Expected run time for demo
+On a single NVIDIA GPU (e.g., RTX 3090), each training epoch takes approximately 10-20 minutes . 
+
 ## Citation
 
 ## References
